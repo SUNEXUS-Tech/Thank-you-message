@@ -1,0 +1,6 @@
+{
+  "name": "Big Mummy – A Heartfelt Thank You",
+  "description": "A heartfelt message of gratitude, survival, and testimony of God's unfailing grace from Big Mummy to everyone who stood by her during her recovery.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --color-royal-purple: #54158c;
+    --color-deep-aubergine: #321044;
+    --color-warm-ivory: #fff8ef;
+    --color-champagne-gold: #d6aa54;
+    --color-soft-lavender: #e9ddf4;
+    --color-dark-text: #29212c;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #fff8ef;
+    color: #1e1424;
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  html.dark body {
+    background-color: #120819;
+    color: #f5eef8;
+  }
+}
+
+.font-serif-display {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+}
+
+.font-script {
+  font-family: 'Great Vibes', cursive;
+  font-weight: 400;
+}
+
+/* Gold foil & metallic gradients */
+.gold-shimmer {
+  background: linear-gradient(135deg, #d6aa54 0%, #f4dda9 45%, #c89539 80%, #ebd498 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #d6aa54 0%, #eecf87 50%, #c4963e 100%);
+}
+
+.gold-border {
+  border-color: rgba(214, 170, 84, 0.35);
+}
+
+.purple-deep-bg {
+  background: linear-gradient(180deg, #321044 0%, #220830 100%);
+}
+
+.stationery-texture {
+  background-image: radial-gradient(rgba(84, 21, 140, 0.035) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.dark .stationery-texture {
+  background-image: radial-gradient(rgba(214, 170, 84, 0.06) 1px, transparent 1px);
+}
+
+/* Accessibility: reduce motion if user prefers */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print styling for digital thank you keepsake */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    color: #111 !important;
+  }
+}
