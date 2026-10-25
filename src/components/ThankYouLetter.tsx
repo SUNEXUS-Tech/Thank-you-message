@@ -57,15 +57,21 @@ export const ThankYouLetter: React.FC = () => {
               <p className="font-serif-display italic text-[#2B0A3D] dark:text-[#FFF8EF] text-2xl sm:text-3xl md:text-4xl text-center font-bold">
                 There is an adage that says,
                 <br />
-                <span className="not-italic text-[#54158C] dark:text-[#E5BE6C] font-extrabold mt-2.5 block tracking-normal">
+                <span
+                  className="not-italic text-[#270e2d] bg-[#e9bfe4] font-extrabold mt-2.5 block tracking-normal px-4 py-2 rounded-xl shadow-xs"
+                  style={{ color: '#270e2d', backgroundColor: '#e9bfe4' }}
+                >
                   &ldquo;Pretend as if you are dead and see who will cry for you.&rdquo;
                 </span>
               </p>
             </div>
 
-            {/* Paragraph 1: WÀÓÒÒÒ Opening */}
-            <p className="font-extrabold text-[#54158C] dark:text-[#E5BE6C] tracking-wide text-2xl sm:text-3xl md:text-4xl font-serif-display leading-tight">
-              WÀÓÒÒÒ!!! Words cannot adequately express how deeply touched and grateful I am!
+            {/* Paragraph 1 */}
+            <p
+              className="font-extrabold text-[#dac0f4] tracking-wide text-2xl sm:text-3xl md:text-4xl font-serif-display leading-tight"
+              style={{ color: '#dac0f4' }}
+            >
+              Words cannot adequately express how deeply touched and grateful I am!
             </p>
 
             {/* Paragraph 2 */}
@@ -118,7 +124,7 @@ export const ThankYouLetter: React.FC = () => {
               <div className="flex items-center justify-center gap-2.5 mb-4 text-[#54158C] dark:text-[#E5BE6C]">
                 <Heart className="w-7 h-7 fill-[#54158C] dark:fill-[#E5BE6C]" aria-hidden="true" />
                 <span className="font-serif-display text-xl sm:text-2xl font-extrabold tracking-wide uppercase">
-                  A Mother&apos;s Blessing Upon You
+                  A Blessing Upon You
                 </span>
               </div>
               <p className="font-serif-display text-2xl sm:text-3xl md:text-4xl text-[#2B0A3D] dark:text-white text-center italic font-bold leading-relaxed">

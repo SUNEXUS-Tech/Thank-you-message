@@ -138,7 +138,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   <img
                     src="/big-mummy-portrait.webp"
                     alt="Omo Kolleade in royal purple traditional attire with gold accents and purple gele smiling with joyful gratitude"
-                    className="w-full h-[480px] sm:h-[540px] lg:h-[580px] xl:h-[620px] object-cover object-[center_12%] transition-transform duration-700 hover:scale-[1.02] block"
+                    className="w-full max-w-[600px] h-[480px] sm:h-[540px] lg:h-[580px] xl:h-[620px] object-cover object-[center_12%] transition-transform duration-700 hover:scale-[1.02] block mx-auto"
+                    style={{ width: '600px' }}
                     loading="eager"
                     referrerPolicy="no-referrer"
                   />
