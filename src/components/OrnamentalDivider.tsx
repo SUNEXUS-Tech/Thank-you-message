@@ -27,14 +27,14 @@ export const OrnamentalDivider: React.FC<OrnamentalDividerProps> = ({
 
   return (
     <div
-      className={`flex items-center justify-center gap-3 my-8 select-none ${className}`}
+      className={`flex items-center justify-center gap-2 sm:gap-3 my-6 sm:my-8 select-none max-w-full px-2 ${className}`}
       aria-hidden="true"
     >
-      <div className={`h-[1px] w-16 sm:w-28 bg-gradient-to-r ${lineColor}`} />
+      <div className={`h-[1px] w-8 xs:w-14 sm:w-28 max-w-[80px] sm:max-w-none bg-gradient-to-r ${lineColor}`} />
 
       {symbol === 'floral' && (
         <svg
-          className={`w-5 h-5 ${iconColor}`}
+          className={`w-4 h-4 sm:w-5 sm:h-5 shrink-0 ${iconColor}`}
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -48,7 +48,7 @@ export const OrnamentalDivider: React.FC<OrnamentalDividerProps> = ({
 
       {symbol === 'heart' && (
         <svg
-          className={`w-4 h-4 ${iconColor}`}
+          className={`w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 ${iconColor}`}
           viewBox="0 0 24 24"
           fill="currentColor"
           fillOpacity="0.3"
@@ -61,7 +61,7 @@ export const OrnamentalDivider: React.FC<OrnamentalDividerProps> = ({
 
       {symbol === 'star' && (
         <svg
-          className={`w-4 h-4 ${iconColor}`}
+          className={`w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 ${iconColor}`}
           viewBox="0 0 24 24"
           fill="currentColor"
         >
@@ -71,7 +71,7 @@ export const OrnamentalDivider: React.FC<OrnamentalDividerProps> = ({
 
       {symbol === 'cross' && (
         <svg
-          className={`w-4 h-4 ${iconColor}`}
+          className={`w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 ${iconColor}`}
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -81,7 +81,7 @@ export const OrnamentalDivider: React.FC<OrnamentalDividerProps> = ({
         </svg>
       )}
 
-      <div className={`h-[1px] w-16 sm:w-28 bg-gradient-to-l ${lineColor}`} />
+      <div className={`h-[1px] w-8 xs:w-14 sm:w-28 max-w-[80px] sm:max-w-none bg-gradient-to-l ${lineColor}`} />
     </div>
   );
 };

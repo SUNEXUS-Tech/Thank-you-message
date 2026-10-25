@@ -12,6 +12,12 @@
     --color-dark-text: #29212c;
   }
 
+  html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
   html.dark {
     color-scheme: dark;
   }
@@ -21,8 +27,12 @@
     background-color: #fff8ef;
     color: #1e1424;
     font-weight: 500;
+    overflow-x: hidden;
+    width: 100%;
+    min-width: 320px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 

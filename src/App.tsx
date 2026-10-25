@@ -11,13 +11,14 @@ import { ClosingProclamation } from './components/ClosingProclamation';
 import { BlessingInteraction } from './components/BlessingInteraction';
 import { Footer } from './components/Footer';
 import { ShareModal } from './components/ShareModal';
-import { chimePlayer } from './utils/audio';
+import { MusicPlayer } from './components/MusicPlayer';
+import { AudioProvider, useAudio } from './context/AudioContext';
 import { ArrowUp, Share2 } from 'lucide-react';
 
-export default function App() {
+function AppContent() {
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
-  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const { isPlaying, togglePlay } = useAudio();
 
   // Theme state with localStorage persistence and system preference default
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
@@ -58,11 +59,6 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleToggleAudio = () => {
-    const active = chimePlayer.toggle();
-    setIsAudioPlaying(active);
-  };
-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -81,8 +77,8 @@ export default function App() {
         {/* Standard Professional Two-Column Hero Section */}
         <HeroSection
           onOpenShare={() => setIsShareModalOpen(true)}
-          isAudioPlaying={isAudioPlaying}
-          onToggleAudio={handleToggleAudio}
+          isAudioPlaying={isPlaying}
+          onToggleAudio={togglePlay}
         />
 
         {/* The Verbatim Thank You Letter */}
@@ -104,12 +100,15 @@ export default function App() {
         onClose={() => setIsShareModalOpen(false)}
       />
 
+      {/* Dedicated Floating Background Music Player */}
+      <MusicPlayer />
+
       {/* Floating Action Buttons (Sticky Quick Share & Back to Top) */}
-      <div className="fixed bottom-5 right-5 z-40 flex flex-col gap-2.5 no-print">
+      <div className="fixed bottom-[calc(1rem+env(safe-area-inset-bottom,0px))] right-[calc(1rem+env(safe-area-inset-right,0px))] sm:bottom-6 sm:right-6 z-40 flex flex-col gap-2.5 no-print">
         {showScrollTop && (
           <button
             onClick={scrollToTop}
-            className="p-3 bg-white/95 dark:bg-[#251034]/95 hover:bg-white dark:hover:bg-[#321544] text-[#54158C] dark:text-[#E5BE6C] rounded-full shadow-lg border border-[#D6AA54]/40 hover:border-[#54158C] transition-all hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#54158C]"
+            className="p-3 sm:p-3.5 min-h-[48px] min-w-[48px] flex items-center justify-center bg-white/95 dark:bg-[#251034]/95 hover:bg-white dark:hover:bg-[#321544] text-[#54158C] dark:text-[#E5BE6C] rounded-full shadow-lg border border-[#D6AA54]/40 hover:border-[#54158C] transition-all hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#54158C]"
             aria-label="Back to top"
             title="Scroll to top"
           >
@@ -119,7 +118,7 @@ export default function App() {
 
         <button
           onClick={() => setIsShareModalOpen(true)}
-          className="p-3 bg-[#54158C] hover:bg-[#321044] dark:bg-[#54158C] dark:hover:bg-[#6c1dae] text-[#D6AA54] hover:text-white rounded-full shadow-xl border border-[#D6AA54] transition-all hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#54158C]"
+          className="p-3 sm:p-3.5 min-h-[48px] min-w-[48px] flex items-center justify-center bg-[#54158C] hover:bg-[#321044] dark:bg-[#54158C] dark:hover:bg-[#6c1dae] text-[#D6AA54] hover:text-white rounded-full shadow-xl border border-[#D6AA54] transition-all hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#54158C]"
           aria-label="Share this message"
           title="Share this gratitude card"
         >
@@ -127,5 +126,13 @@ export default function App() {
         </button>
       </div>
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <AudioProvider>
+      <AppContent />
+    </AudioProvider>
   );
 }
